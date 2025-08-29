@@ -1108,17 +1108,17 @@
                     <h2 class="text-3xl font-bold font-['Space_Grotesk']">Diwali Posters</h2>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/d.jpeg')">
+                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/d.jpg')">
                         <div class="glass-card p-2 h-full">
                             <img src="images/d.jpg" alt="Branding Poster" class="rounded-lg w-full h-full object-cover border-2 border-transparent group-hover:border-blue-400">
                         </div>
                     </div>
-                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/d1.jpeg')">
+                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/d1.jpg')">
                         <div class="glass-card p-2 h-full">
                             <img src="images/d1.jpg" alt="Branding Poster" class="rounded-lg w-full h-full object-cover border-2 border-transparent group-hover:border-blue-400">
                         </div>
                     </div>
-                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/d2.jpeg')">
+                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/d2.jpg')">
                         <div class="glass-card p-2 h-full">
                             <img src="images/d2.jpg" alt="Branding Poster" class="rounded-lg w-full h-full object-cover border-2 border-transparent group-hover:border-blue-400">
                         </div>
@@ -1129,17 +1129,17 @@
                     <h2 class="text-3xl font-bold font-['Space_Grotesk']">Eid Posters</h2>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/e.jpeg')">
+                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/e.jpg')">
                         <div class="glass-card p-2 h-full">
                             <img src="images/e.jpg" alt="Branding Poster" class="rounded-lg w-full h-full object-cover border-2 border-transparent group-hover:border-blue-400">
                         </div>
                     </div>
-                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/e1.jpeg')">
+                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/e1.jpg')">
                         <div class="glass-card p-2 h-full">
                             <img src="images/e1.jpg" alt="Branding Poster" class="rounded-lg w-full h-full object-cover border-2 border-transparent group-hover:border-blue-400">
                         </div>
                     </div>
-                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/d2.jpeg')">
+                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/d2.jpg')">
                         <div class="glass-card p-2 h-full">
                             <img src="images/e2.jpg" alt="Branding Poster" class="rounded-lg w-full h-full object-cover border-2 border-transparent group-hover:border-blue-400">
                         </div>
@@ -1374,10 +1374,10 @@
                                     <select name="budget" id="budget"
                                             class="w-full bg-slate-800/50 border border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm">
                                         <option value="">Select a range</option>
-                                        <option value="under-500">Under $500</option>
-                                        <option value="500-1000">$500 - $1,000</option>
-                                        <option value="1000-2500">$1,000 - $2,500</option>
-                                        <option value="2500-plus">$2,500+</option>
+                                        <option value="under-500">Under ₹500</option>
+                                        <option value="500-1000">₹500 - ₹1,000</option>
+                                        <option value="1000-2500">₹1,000 - ₹2,500</option>
+                                        <option value="2500-plus">₹2,500+</option>
                                     </select>
                                 </div>
                             </div>
@@ -1716,9 +1716,12 @@
                     link.classList.toggle('active', link.dataset.page === pageId);
                 });
                 
-                // Close mobile menu
-                mobileMenu.classList.add('hidden');
-            }
+                                 // Close mobile menu
+                 mobileMenu.classList.add('hidden');
+                 
+                 // Re-initialize icons after page change
+                 reinitializeIcons();
+             }
 
             // Page link event listeners
             pageLinks.forEach(link => {
@@ -1917,34 +1920,81 @@
             }
         });
 
-        // Enhanced form submission
+        // Enhanced form submission with Formspree integration
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
+            const formData = new FormData(this);
             
             // Show loading state
             submitBtn.innerHTML = '<div class="loading-spinner mx-auto"></div>';
             submitBtn.disabled = true;
             
-            // Simulate form submission
-            setTimeout(() => {
-                submitBtn.innerHTML = '✓ Message Sent!';
-                submitBtn.classList.remove('btn-primary');
-                submitBtn.classList.add('bg-green-500');
+            // Submit to Formspree
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success
+                    submitBtn.innerHTML = '✓ Message Sent!';
+                    submitBtn.classList.remove('btn-primary');
+                    submitBtn.classList.add('bg-green-500');
+                    
+                    // Reset form
+                    this.reset();
+                    
+                    // Show success message
+                    const statusElement = document.getElementById('status');
+                    if (statusElement) {
+                        statusElement.innerHTML = '<div class="text-green-400 text-sm mt-2">✓ Message sent successfully! We\'ll get back to you soon.</div>';
+                    }
+                    
+                    // Reset button after delay
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.classList.add('btn-primary');
+                        submitBtn.classList.remove('bg-green-500');
+                        if (statusElement) {
+                            statusElement.innerHTML = '';
+                        }
+                    }, 3000);
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
                 
-                // Reset form
-                this.reset();
+                // Error state
+                submitBtn.innerHTML = '✗ Error - Try Again';
+                submitBtn.classList.remove('btn-primary');
+                submitBtn.classList.add('bg-red-500');
+                
+                // Show error message
+                const statusElement = document.getElementById('status');
+                if (statusElement) {
+                    statusElement.innerHTML = '<div class="text-red-400 text-sm mt-2">✗ There was an error sending your message. Please try again.</div>';
+                }
                 
                 // Reset button after delay
                 setTimeout(() => {
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
                     submitBtn.classList.add('btn-primary');
-                    submitBtn.classList.remove('bg-green-500');
-                }, 2000);
-            }, 1500);
+                    submitBtn.classList.remove('bg-red-500');
+                    if (statusElement) {
+                        statusElement.innerHTML = '';
+                    }
+                }, 3000);
+            });
         });
 
         // Smooth scroll for anchor links
@@ -1986,6 +2036,18 @@
 
         // Initialize Feather Icons
         feather.replace();
+        
+        // Ensure icons are replaced after any dynamic content is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+        });
+        
+        // Re-initialize icons after page transitions
+        function reinitializeIcons() {
+            setTimeout(() => {
+                feather.replace();
+            }, 100);
+        }
 
         // Add loading animation to images
         document.querySelectorAll('img').forEach(img => {
