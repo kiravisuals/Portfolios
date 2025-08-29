@@ -390,6 +390,16 @@
             .glass-card.p-8 {
                 padding: 1.5rem;
             }
+
+            /* Prevent hero title from sitting under fixed blur header */
+            .hero-video-bg {
+                padding-top: 88px !important;
+            }
+
+            /* Improve anchor scroll position with fixed header */
+            .page-content {
+                scroll-margin-top: 88px;
+            }
             
             /* Enhanced mobile typography for "Kira Visuals" */
             h1.text-6xl {
@@ -2074,4 +2084,5 @@
         });
     </script>
 </body>
+
 </html>
