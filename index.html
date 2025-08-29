@@ -390,7 +390,7 @@
             .glass-card.p-8 {
                 padding: 1.5rem;
             }
-
+            
             /* Prevent hero title from sitting under fixed blur header */
             .hero-video-bg {
                 padding-top: 88px !important;
@@ -400,15 +400,27 @@
             .page-content {
                 scroll-margin-top: 88px;
             }
-            
+
             /* Enhanced mobile typography for "Kira Visuals" */
-            h1.text-6xl {
-                font-size: 2.75rem !important;
-                line-height: 1.1 !important;
+            #home .hero-content h1 {
+                font-size: 2.5rem !important;
+                line-height: 1.15 !important;
                 text-align: center !important;
                 padding: 0 1rem !important;
                 word-break: keep-all !important;
                 hyphens: none !important;
+                color: #ffffff !important;
+                position: relative;
+                z-index: 5;
+            }
+
+            /* Disable gradient text on mobile to ensure visibility */
+            #home .hero-content h1 .gradient-text {
+                background: none !important;
+                background-clip: initial !important;
+                -webkit-background-clip: initial !important;
+                -webkit-text-fill-color: initial !important;
+                color: #ffffff !important;
             }
             
             h1.text-5xl {
@@ -818,6 +830,75 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Testimonials moved into Home only -->
+            <!-- New Testimonials Section -->
+            <section class="py-20 bg-gradient-to-b from-slate-900 to-slate-800">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-4xl font-bold text-center font-['Space_Grotesk'] mb-16">
+                        what our <span class="gradient-text">client</span> says
+                    </h2>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Testimonial 1 -->
+                        <div class="glass-card p-6 md:p-8">
+                            <div class="flex items-center mb-4">
+                                <div class="text-yellow-400 text-xl md:text-2xl">★★★★★</div>
+                            </div>
+                            <p class="text-slate-300 mb-5 md:mb-6 italic text-sm md:text-base">
+                                "Kira ne hamare poster designs ko next level pe le gaya. Clean layout, bold typography aur catchy visuals ki wajah se enquiries aur visibility dono bahut badh gaye. Print quality bhi top‑notch thi."
+                            </p>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm md:text-base">
+                                    RV
+                                </div>
+                                <div class="ml-3 md:ml-4">
+                                    <div class="font-semibold text-sm md:text-base">Rahul Verma</div>
+                                    <div class="text-slate-400 text-xs md:text-sm">CEO, TechCorp — Poster Client</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="glass-card p-6 md:p-8">
+                            <div class="flex items-center mb-4">
+                                <div class="text-yellow-400 text-xl md:text-2xl">★★★★★</div>
+                            </div>
+                            <p class="text-slate-300 mb-5 md:mb-6 italic text-sm md:text-base">
+                                "Event ke liye multiple poster sizes chahiye the. Kira ne har size ke hisaab se layout optimize kiya—WhatsApp share se lekar A3 print tak sab crisp aur readable tha. Communication fast aur delivery on‑time."
+                            </p>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm md:text-base">
+                                    AK
+                                </div>
+                                <div class="ml-3 md:ml-4">
+                                    <div class="font-semibold text-sm md:text-base">Aisha Khan</div>
+                                    <div class="text-slate-400 text-xs md:text-sm">Event Organizer — Poster Client</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 3 -->
+                        <div class="glass-card p-6 md:p-8">
+                            <div class="flex items-center mb-4">
+                                <div class="text-yellow-400 text-xl md:text-2xl">★★★★★</div>
+                            </div>
+                            <p class="text-slate-300 mb-5 md:mb-6 italic text-sm md:text-base">
+                                "Brand launch posters itne impactful the ki log literally store par aa kar poochne lage. Colors, hierarchy aur call‑to‑action perfect the. Creative concepts + fast turnaround ne kaam kaafi easy kar diya."
+                            </p>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm md:text-base">
+                                    RS
+                                </div>
+                                <div class="ml-3 md:ml-4">
+                                    <div class="font-semibold text-sm md:text-base">Rohit Sharma</div>
+                                    <div class="text-slate-400 text-xs md:text-sm">Founder, CreativeStudio — Poster Client</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </section>
 
         <!-- Completely Redesigned Video Editing Section -->
@@ -945,26 +1026,22 @@
                         </article>
 
                                          <!-- Call to Action Section -->
-                     <div class="flex justify-center items-center mt-16 md:mt-20">
-                         <div class="glass-card p-8 md:p-12 max-w-3xl w-full text-center">
+                     <div class="text-center mt-16 md:mt-20">
+                         <div class="glass-card p-8 md:p-12 max-w-3xl mx-auto">
                              <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-['Space_Grotesk'] mb-4 md:mb-6">
-                                 Ready to Transform Your <span class="gradient-text">Content</span>?
+                                 Ready for Eye-Catching <span class="gradient-text">Video Edits</span>?
                              </h2>
                              <p class="text-base sm:text-lg text-slate-300 mb-6 md:mb-8">
                                  Let's create something extraordinary together. From concept to final cut, I'll bring your vision to life.
                              </p>
-                             <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center">
-                                 <button class="btn-primary start-project-btn px-6 py-3 text-sm sm:text-base" data-service="video-editing">
-                                     Start Your Project
-                                 </button>
-                                 <button class="px-6 py-3 border-2 border-purple-500 text-purple-400 rounded-xl font-semibold hover:bg-purple-500 hover:text-white transition-all duration-300 page-link text-sm sm:text-base" data-page="thumbnail-design">
-                                     View Thumbnails
-                                 </button>
-                             </div>
+                             <button class="btn-primary start-project-btn px-8 py-4 text-lg font-semibold" data-service="video-editing">
+                                 Start Your Project
+                             </button>
                          </div>
                      </div>
                 </div>
             </div>
+            
         </section>
 
         <!-- Poster Design Section -->
@@ -1031,17 +1108,17 @@
                     <h2 class="text-3xl font-bold font-['Space_Grotesk']">Diwali Posters</h2>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/d.jpg')">
+                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/d.jpeg')">
                         <div class="glass-card p-2 h-full">
                             <img src="images/d.jpg" alt="Branding Poster" class="rounded-lg w-full h-full object-cover border-2 border-transparent group-hover:border-blue-400">
                         </div>
                     </div>
-                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/d1.jpg')">
+                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/d1.jpeg')">
                         <div class="glass-card p-2 h-full">
                             <img src="images/d1.jpg" alt="Branding Poster" class="rounded-lg w-full h-full object-cover border-2 border-transparent group-hover:border-blue-400">
                         </div>
                     </div>
-                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/d2.jpg')">
+                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/d2.jpeg')">
                         <div class="glass-card p-2 h-full">
                             <img src="images/d2.jpg" alt="Branding Poster" class="rounded-lg w-full h-full object-cover border-2 border-transparent group-hover:border-blue-400">
                         </div>
@@ -1052,17 +1129,17 @@
                     <h2 class="text-3xl font-bold font-['Space_Grotesk']">Eid Posters</h2>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/e.jpg')">
+                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/e.jpeg')">
                         <div class="glass-card p-2 h-full">
                             <img src="images/e.jpg" alt="Branding Poster" class="rounded-lg w-full h-full object-cover border-2 border-transparent group-hover:border-blue-400">
                         </div>
                     </div>
-                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/e1.jpg')">
+                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/e1.jpeg')">
                         <div class="glass-card p-2 h-full">
                             <img src="images/e1.jpg" alt="Branding Poster" class="rounded-lg w-full h-full object-cover border-2 border-transparent group-hover:border-blue-400">
                         </div>
                     </div>
-                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/d2.jpg')">
+                    <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105" onclick="openLightbox('images/d2.jpeg')">
                         <div class="glass-card p-2 h-full">
                             <img src="images/e2.jpg" alt="Branding Poster" class="rounded-lg w-full h-full object-cover border-2 border-transparent group-hover:border-blue-400">
                         </div>
@@ -1266,34 +1343,30 @@
                     <div class="glass-card p-6 md:p-8">
                         <h3 class="text-xl md:text-2xl font-bold font-['Space_Grotesk'] mb-6">Start Your Project</h3>
                         
-                        <form action="#" method="POST" class="space-y-5">
+                        <form id="contact" action="https://formspree.io/f/mandqgbw" method="POST" class="space-y-5">
                             <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-5">
                                 <div>
                                     <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Your Name</label>
-                                    <input type="text" name="name" id="name" required
-                                           class="w-full bg-slate-800/50 border border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm"
-                                           aria-describedby="name-help">
-                                    <p id="name-help" class="text-xs text-slate-500 mt-1 sr-only">Please enter your full name</p>
+                                    <input type="text" name="name" id="name" placeholder="Your name" required
+                                           class="w-full bg-slate-800/50 border border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm">
                                 </div>
                                 <div>
                                     <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Your Email</label>
-                                    <input type="email" name="email" id="email" required
-                                           class="w-full bg-slate-800/50 border border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm"
-                                           aria-describedby="email-help">
-                                    <p id="email-help" class="text-xs text-slate-500 mt-1 sr-only">Please enter a valid email address</p>
+                                    <input type="email" name="email" id="email" placeholder="Your email" required
+                                           class="w-full bg-slate-800/50 border border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm">
                                 </div>
                             </div>
                             
                             <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-5">
                                 <div>
                                     <label for="service" class="block text-sm font-medium text-slate-300 mb-2">Service Needed</label>
-                                                                         <select name="service" id="service"
-                                             class="w-full bg-slate-800/50 border border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm">
-                                         <option value="">Select a service</option>
-                                         <option value="video-editing">Video Editing</option>
-                                         <option value="thumbnail-design">Thumbnail Design</option>
-                                         <option value="poster-design">Poster Design</option>
-                                     </select>
+                                    <select name="service" id="service"
+                                            class="w-full bg-slate-800/50 border border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm">
+                                        <option value="">Select a service</option>
+                                        <option value="video-editing">Video Editing</option>
+                                        <option value="thumbnail-design">Thumbnail Design</option>
+                                        <option value="poster-design">Poster Design</option>
+                                    </select>
                                 </div>
                                 
                                 <div>
@@ -1311,15 +1384,18 @@
                             
                             <div>
                                 <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Project Details</label>
-                                <textarea name="message" id="message" rows="4" required
-                                          placeholder="Tell me about your project, timeline, and any specific requirements..."
+                                <textarea name="message" id="message" rows="4" placeholder="Your message" required
                                           class="w-full bg-slate-800/50 border border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none text-sm"></textarea>
                             </div>
+                            
+                            <!-- Honeypot (spam trap) -->
+                            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
                             
                             <button type="submit" class="btn-primary w-full py-3 text-sm">
                                 Send Message
                             </button>
                         </form>
+                        <p id="status"></p>
                     </div>
                     
                     <!-- Contact Information -->
@@ -1385,73 +1461,6 @@
             </div>
         </section>
         
-        <!-- New Testimonials Section -->
-        <section class="py-20 bg-gradient-to-b from-slate-900 to-slate-800">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center font-['Space_Grotesk'] mb-16">
-                    What Our <span class="gradient-text">Clients</span> Say
-                </h2>
-                
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Testimonial 1 -->
-                    <div class="glass-card p-6 md:p-8">
-                        <div class="flex items-center mb-4">
-                            <div class="text-yellow-400 text-xl md:text-2xl">★★★★★</div>
-                        </div>
-                        <p class="text-slate-300 mb-5 md:mb-6 italic text-sm md:text-base">
-                            "Kira transformed our content with stunning visuals and engaging editing. Our audience engagement increased by 150% after implementing their designs."
-                        </p>
-                        <div class="flex items-center">
-                            <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm md:text-base">
-                                JD
-                            </div>
-                            <div class="ml-3 md:ml-4">
-                                <div class="font-semibold text-sm md:text-base">John Doe</div>
-                                <div class="text-slate-400 text-xs md:text-sm">CEO, TechCorp</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 2 -->
-                    <div class="glass-card p-6 md:p-8">
-                        <div class="flex items-center mb-4">
-                            <div class="text-yellow-400 text-xl md:text-2xl">★★★★★</div>
-                        </div>
-                        <p class="text-slate-300 mb-5 md:mb-6 italic text-sm md:text-base">
-                            "The thumbnail designs are absolutely eye-catching and have significantly boosted our click-through rates. Professional service from start to finish."
-                        </p>
-                        <div class="flex items-center">
-                            <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm md:text-base">
-                                AS
-                            </div>
-                            <div class="ml-3 md:ml-4">
-                                <div class="font-semibold text-sm md:text-base">Alice Smith</div>
-                                <div class="text-slate-400 text-xs md:text-sm">Marketing Director</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 3 -->
-                    <div class="glass-card p-6 md:p-8">
-                        <div class="flex items-center mb-4">
-                            <div class="text-yellow-400 text-xl md:text-2xl">★★★★★</div>
-                        </div>
-                        <p class="text-slate-300 mb-5 md:mb-6 italic text-sm md:text-base">
-                            "Working with Kira was a game-changer for our brand. The attention to detail and creative approach exceeded our expectations in every project."
-                        </p>
-                        <div class="flex items-center">
-                            <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm md:text-base">
-                                RJ
-                            </div>
-                            <div class="ml-3 md:ml-4">
-                                <div class="font-semibold text-sm md:text-base">Robert Johnson</div>
-                                <div class="text-slate-400 text-xs md:text-sm">Founder, CreativeStudio</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Enhanced Footer -->
@@ -2081,9 +2090,4 @@
         });
     </script>
 </body>
-
 </html>
-
-
-
-
